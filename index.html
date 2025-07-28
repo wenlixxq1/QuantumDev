@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QuantumDev | Квантовое Портфолио</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="universe-styles.css">
+    <link rel="stylesheet" href="mobile-styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&family=Orbitron:wght@400;700;900&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="loading-screen" id="loading">
+        <div class="loading-content">
+            <div class="hologram-loader"></div>
+            <div class="loading-text">Инициализация мультивселенной...</div>
+            <div class="loading-progress">
+                <div class="progress-bar" id="progress"></div>
+            </div>
+        </div>
+    </div>
+
+    <div class="universe-selector" id="universe-selector">
+        <h1 class="multiverse-title">QUANTUM DEV</h1>
+        <p class="multiverse-subtitle">Выберите квантовое измерение</p>
+        <div class="universe-grid">
+            <div class="universe-card" onclick="enterUniverse('terminal')">
+                <div class="card-glow"></div>
+                <div class="universe-icon">⌨️</div>
+                <h3>ТЕРМИНАЛ ХАКЕРА</h3>
+                <p>Командная строка будущего</p>
+                <div class="card-stats">
+                    <span>🔥 Популярно</span>
+                    <span>⚡ Интерактивно</span>
+                </div>
+            </div>
+            <div class="universe-card" onclick="enterUniverse('game')">
+                <div class="card-glow"></div>
+                <div class="universe-icon">🎮</div>
+                <h3>РЕТРО ИГРА</h3>
+                <p>8-bit приключение с боссами</p>
+                <div class="card-stats">
+                    <span>🎯 10 уровней</span>
+                    <span>👾 3 босса</span>
+                </div>
+            </div>
+            <div class="universe-card" onclick="enterUniverse('lab')">
+                <div class="card-glow"></div>
+                <div class="universe-icon">🧪</div>
+                <h3>ЛАБОРАТОРИЯ</h3>
+                <p>Научные эксперименты</p>
+                <div class="card-stats">
+                    <span>⚗️ 4 эксперимента</span>
+                    <span>🔬 Интерактивно</span>
+                </div>
+            </div>
+            <div class="universe-card" onclick="enterUniverse('space')">
+                <div class="card-glow"></div>
+                <div class="universe-icon">🚀</div>
+                <h3>КОСМОС</h3>
+                <p>Межгалактическая станция</p>
+                <div class="card-stats">
+                    <span>🛰️ 4 отсека</span>
+                    <span>🌌 3D эффекты</span>
+                </div>
+            </div>
+            <div class="universe-card" onclick="enterUniverse('city')">
+                <div class="card-glow"></div>
+                <div class="universe-icon">🏙️</div>
+                <h3>КИБЕРСИТИ</h3>
+                <p>Изометрический город</p>
+                <div class="card-stats">
+                    <span>🏢 8 зданий</span>
+                    <span>💫 Неоновые эффекты</span>
+                </div>
+            </div>
+            <div class="universe-card" onclick="enterUniverse('music')">
+                <div class="card-glow"></div>
+                <div class="universe-icon">🎵</div>
+                <h3>МУЗЫКАЛЬНЫЙ МИР</h3>
+                <p>Звуковые визуализации</p>
+                <div class="card-stats">
+                    <span>🎹 7 нот</span>
+                    <span>🌈 Визуализация</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ТЕРМИНАЛ ХАКЕРА -->
+    <div class="universe terminal-universe" id="terminal-universe">
+        <div class="terminal-container">
+            <div class="terminal-header">
+                <span class="terminal-title">QUANTUM_TERMINAL v3.0.42</span>
+                <button class="universe-exit" onclick="exitUniverse()">✕</button>
+            </div>
+            <div class="terminal-content" id="terminal-content">
+                <div class="terminal-line">
+                    <span class="prompt">root@portfolio:~$</span>
+                    <span class="cursor">_</span>
+                </div>
+            </div>
+            <div class="terminal-input-container">
+                <input type="text" class="terminal-input" id="terminal-input" placeholder="Введите команду...">
+                <button class="terminal-send-btn" onclick="sendCommand()">Отправить</button>
+            </div>
+        </div>
+        <div class="terminal-help">
+            <h4>Доступные команды:</h4>
+            <p>help, about, skills, projects, contact, matrix, hack, stats</p>
+        </div>
+    </div>
+
+    <!-- РЕТРО ИГРА -->
+    <div class="universe game-universe" id="game-universe">
+        <div class="game-container">
+            <div class="game-header">
+                <div class="game-title">SKILL COLLECTOR</div>
+                <div class="game-stats">
+                    <div class="stat-item">
+                        <span class="stat-icon">💎</span>
+                        <span>Навыков: <span id="skills-count">0</span>/10</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-icon">⭐</span>
+                        <span>Уровень: <span id="level">1</span></span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-icon">❤️</span>
+                        <span>Жизни: <span id="lives">3</span></span>
+                    </div>
+                </div>
+                <button class="universe-exit" onclick="exitUniverse()">✕</button>
+            </div>
+            <canvas id="game-canvas" width="900" height="500"></canvas>
+            <div class="game-controls">
+                <div class="control-btn" onmousedown="movePlayer('left')" onmouseup="stopPlayer()">←</div>
+                <div class="control-btn" onmousedown="movePlayer('right')" onmouseup="stopPlayer()">→</div>
+                <div class="control-btn" onclick="jumpPlayer()">ПРЫЖОК</div>
+                <div class="control-btn" onclick="shootProjectile()">ВЫСТРЕЛ</div>
+            </div>
+            <div class="game-info">
+                <div class="mission">Миссия: Собери все навыки и победи боссов!</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ЛАБОРАТОРИЯ -->
+    <div class="universe lab-universe" id="lab-universe">
+        <div class="lab-container">
+            <div class="lab-header">
+                <h2>ЛАБОРАТОРИЯ ПРОЕКТОВ</h2>
+                <button class="universe-exit" onclick="exitUniverse()">✕</button>
+            </div>
+            <div class="lab-table">
+                <div class="experiment" onclick="runExperiment('javascript')">
+                    <div class="flask js-flask">
+                        <div class="liquid"></div>
+                        <div class="bubbles"></div>
+                    </div>
+                    <label>JavaScript</label>
+                </div>
+                <div class="experiment" onclick="runExperiment('node')">
+                    <div class="flask node-flask">
+                        <div class="liquid"></div>
+                        <div class="bubbles"></div>
+                    </div>
+                    <label>Node.js</label>
+                </div>
+                <div class="experiment" onclick="runExperiment('python')">
+                    <div class="flask python-flask">
+                        <div class="liquid"></div>
+                        <div class="bubbles"></div>
+                    </div>
+                    <label>Python</label>
+                </div>
+                <div class="experiment" onclick="runExperiment('css')">
+                    <div class="flask css-flask">
+                        <div class="liquid"></div>
+                        <div class="bubbles"></div>
+                    </div>
+                    <label>CSS</label>
+                </div>
+            </div>
+            <div class="experiment-result" id="experiment-result"></div>
+        </div>
+    </div>
+
+    <!-- КОСМИЧЕСКАЯ СТАНЦИЯ -->
+    <div class="universe space-universe" id="space-universe">
+        <div class="space-container">
+            <div class="space-header">
+                <h2>КВАНТОВАЯ СТАНЦИЯ QUANTUM-DEV</h2>
+                <div class="space-status">
+                    <span class="status-item">🛰️ Статус: Активна</span>
+                    <span class="status-item">⚡ Энергия: 100%</span>
+                    <span class="status-item">👨‍🚀 Экипаж: 1</span>
+                </div>
+                <button class="universe-exit" onclick="exitUniverse()">✕</button>
+            </div>
+            <div class="space-station">
+                <div class="station-room" onclick="enterRoom('bridge')">
+                    <div class="room-icon">🎛️</div>
+                    <div class="room-info">
+                        <h3>Мостик</h3>
+                        <p>Центр управления</p>
+                    </div>
+                    <div class="room-status online"></div>
+                </div>
+                <div class="station-room" onclick="enterRoom('lab')">
+                    <div class="room-icon">🔬</div>
+                    <div class="room-info">
+                        <h3>Лаборатория</h3>
+                        <p>Исследования</p>
+                    </div>
+                    <div class="room-status online"></div>
+                </div>
+                <div class="station-room" onclick="enterRoom('hangar')">
+                    <div class="room-icon">🚀</div>
+                    <div class="room-info">
+                        <h3>Ангар</h3>
+                        <p>Проекты</p>
+                    </div>
+                    <div class="room-status online"></div>
+                </div>
+                <div class="station-room" onclick="enterRoom('quarters')">
+                    <div class="room-icon">🛏️</div>
+                    <div class="room-info">
+                        <h3>Каюта</h3>
+                        <p>Личное</p>
+                    </div>
+                    <div class="room-status online"></div>
+                </div>
+            </div>
+            <div class="space-radar">
+                <div class="radar-screen">
+                    <div class="radar-sweep"></div>
+                    <div class="radar-dot" style="top: 30%; left: 60%;"></div>
+                    <div class="radar-dot" style="top: 70%; left: 40%;"></div>
+                    <div class="radar-dot" style="top: 50%; left: 80%;"></div>
+                </div>
+                <div class="radar-label">РАДАР</div>
+            </div>
+            <div class="stars-field" id="stars-field"></div>
+            <div class="nebula" id="nebula"></div>
+            <div class="planets" id="planets"></div>
+        </div>
+    </div>
+
+    <!-- КИБЕРСИТИ -->
+    <div class="universe city-universe" id="city-universe">
+        <div class="city-container">
+            <div class="city-header">
+                <h2>КИБЕРСИТИ 2077</h2>
+                <button class="universe-exit" onclick="exitUniverse()">✕</button>
+            </div>
+            <div class="isometric-city" id="city-grid">
+                <div class="building project-building" onclick="showProject('ecommerce')">
+                    <div class="building-top"></div>
+                    <div class="building-front"></div>
+                    <div class="building-side"></div>
+                    <div class="building-label">E-commerce</div>
+                </div>
+                <div class="building skill-building" onclick="showProject('portfolio')">
+                    <div class="building-top"></div>
+                    <div class="building-front"></div>
+                    <div class="building-side"></div>
+                    <div class="building-label">Portfolio</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- МУЗЫКАЛЬНЫЙ МИР -->
+    <div class="universe music-universe" id="music-universe">
+        <div class="music-container">
+            <div class="music-header">
+                <h2>МУЗЫКАЛЬНОЕ ПОРТФОЛИО</h2>
+                <button class="universe-exit" onclick="exitUniverse()">✕</button>
+            </div>
+            <div class="music-visualizer" id="visualizer">
+                <canvas id="audio-canvas" width="800" height="300"></canvas>
+            </div>
+            <div class="music-controls">
+                <button onclick="playNote('C')">C</button>
+                <button onclick="playNote('D')">D</button>
+                <button onclick="playNote('E')">E</button>
+                <button onclick="playNote('F')">F</button>
+                <button onclick="playNote('G')">G</button>
+                <button onclick="playNote('A')">A</button>
+                <button onclick="playNote('B')">B</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- МОДАЛЬНОЕ ОКНО -->
+    <div class="modal" id="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal()">&times;</span>
+            <div id="modal-body"></div>
+        </div>
+    </div>
+
+    <!-- ЧАСТИЦЫ -->
+    <div class="particles" id="particles"></div>
+
+    <script src="database.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

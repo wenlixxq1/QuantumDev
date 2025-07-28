@@ -1,0 +1,639 @@
+/* СТИЛИ ДЛЯ ВСЕХ ВСЕЛЕННЫХ */
+
+/* РЕТРО ИГРА */
+.game-universe {
+    background: linear-gradient(45deg, #2c1810, #4a2c17, #2c1810);
+    background-size: 400% 400%;
+    animation: gradientShift 10s ease infinite;
+    padding: 2rem;
+}
+
+.game-container {
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.game-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+    position: relative;
+    background: rgba(0, 0, 0, 0.7);
+    padding: 1.5rem;
+    border-radius: 15px;
+    border: 2px solid #ffaa00;
+}
+
+.game-title {
+    font-family: 'Orbitron', monospace;
+    font-size: 2.5rem;
+    color: #ffaa00;
+    text-shadow: 3px 3px 0px #cc8800, 0 0 20px #ffaa00;
+    animation: gameGlow 2s ease-in-out infinite alternate;
+}
+
+@keyframes gameGlow {
+    from { text-shadow: 3px 3px 0px #cc8800, 0 0 20px #ffaa00; }
+    to { text-shadow: 3px 3px 0px #cc8800, 0 0 30px #ffaa00; }
+}
+
+.game-stats {
+    display: flex;
+    gap: 2rem;
+    font-family: 'JetBrains Mono', monospace;
+}
+
+.stat-item {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: rgba(255, 170, 0, 0.1);
+    padding: 0.8rem 1.2rem;
+    border-radius: 10px;
+    border: 1px solid rgba(255, 170, 0, 0.3);
+}
+
+.stat-icon {
+    font-size: 1.2rem;
+}
+
+#game-canvas {
+    border: 4px solid #ffaa00;
+    background: linear-gradient(to bottom, #87ceeb 0%, #98fb98 100%);
+    display: block;
+    margin: 0 auto;
+    image-rendering: pixelated;
+    border-radius: 10px;
+    box-shadow: 0 0 30px rgba(255, 170, 0, 0.5);
+}
+
+.game-controls {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    margin-top: 2rem;
+}
+
+.control-btn {
+    background: linear-gradient(45deg, #ffaa00, #ff8800);
+    color: #000;
+    border: none;
+    padding: 1.2rem 2rem;
+    font-family: 'Orbitron', monospace;
+    font-weight: bold;
+    cursor: pointer;
+    border-radius: 10px;
+    user-select: none;
+    transition: all 0.2s ease;
+    box-shadow: 0 4px 15px rgba(255, 170, 0, 0.3);
+    font-size: 1rem;
+}
+
+.control-btn:active {
+    transform: scale(0.95) translateY(2px);
+    box-shadow: 0 2px 10px rgba(255, 170, 0, 0.5);
+}
+
+.control-btn:hover {
+    background: linear-gradient(45deg, #ff8800, #ffaa00);
+    box-shadow: 0 6px 20px rgba(255, 170, 0, 0.5);
+}
+
+.game-info {
+    text-align: center;
+    margin-top: 1.5rem;
+    background: rgba(0, 0, 0, 0.7);
+    padding: 1rem;
+    border-radius: 10px;
+    border: 1px solid #ffaa00;
+}
+
+.mission {
+    font-family: 'JetBrains Mono', monospace;
+    color: #ffaa00;
+    font-size: 1.1rem;
+}
+
+/* ЛАБОРАТОРИЯ */
+.lab-universe {
+    background: linear-gradient(45deg, #0a0a2e, #1a1a4e, #0a0a2e);
+    background-size: 400% 400%;
+    animation: gradientShift 12s ease infinite;
+    padding: 2rem;
+}
+
+.lab-container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.lab-header {
+    text-align: center;
+    margin-bottom: 4rem;
+    position: relative;
+}
+
+.lab-header h2 {
+    font-family: 'Orbitron', monospace;
+    color: #00ffaa;
+    font-size: 3rem;
+    text-shadow: 0 0 30px #00ffaa;
+    animation: labGlow 3s ease-in-out infinite alternate;
+}
+
+@keyframes labGlow {
+    from { text-shadow: 0 0 30px #00ffaa; }
+    to { text-shadow: 0 0 50px #00ffaa, 0 0 70px #00ffaa; }
+}
+
+.lab-table {
+    display: flex;
+    justify-content: center;
+    gap: 4rem;
+    margin-bottom: 4rem;
+}
+
+.experiment {
+    text-align: center;
+    cursor: pointer;
+    transition: transform 0.4s ease;
+    position: relative;
+}
+
+.experiment:hover {
+    transform: scale(1.15) translateY(-10px);
+}
+
+.flask {
+    width: 100px;
+    height: 150px;
+    background: rgba(255, 255, 255, 0.1);
+    border: 4px solid #00ffaa;
+    border-radius: 0 0 50px 50px;
+    position: relative;
+    margin: 0 auto 2rem;
+    overflow: hidden;
+    box-shadow: 0 0 30px rgba(0, 255, 170, 0.3);
+}
+
+.liquid {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 70%;
+    border-radius: 0 0 50px 50px;
+    animation: liquidBubble 3s ease-in-out infinite;
+}
+
+@keyframes liquidBubble {
+    0%, 100% { height: 70%; }
+    50% { height: 75%; }
+}
+
+.js-flask .liquid { 
+    background: linear-gradient(45deg, #f7df1e, #e6cc00);
+    box-shadow: 0 0 20px #f7df1e;
+}
+.node-flask .liquid { 
+    background: linear-gradient(45deg, #68a063, #4d7c47);
+    box-shadow: 0 0 20px #68a063;
+}
+.python-flask .liquid { 
+    background: linear-gradient(45deg, #3776ab, #2d5a87);
+    box-shadow: 0 0 20px #3776ab;
+}
+.css-flask .liquid { 
+    background: linear-gradient(45deg, #1572b6, #0f5a8a);
+    box-shadow: 0 0 20px #1572b6;
+}
+
+.bubbles {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.bubbles::before,
+.bubbles::after {
+    content: '';
+    position: absolute;
+    background: rgba(255, 255, 255, 0.8);
+    border-radius: 50%;
+    animation: float 4s ease-in-out infinite;
+}
+
+.bubbles::before {
+    width: 12px;
+    height: 12px;
+    left: 25%;
+    animation-delay: 0s;
+}
+
+.bubbles::after {
+    width: 8px;
+    height: 8px;
+    right: 25%;
+    animation-delay: 2s;
+}
+
+@keyframes float {
+    0% { transform: translateY(0); opacity: 0; }
+    50% { opacity: 1; }
+    100% { transform: translateY(-80px); opacity: 0; }
+}
+
+.experiment label {
+    color: #00ffaa;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 1.1rem;
+    text-shadow: 0 0 10px #00ffaa;
+}
+
+.experiment-result {
+    background: rgba(0, 255, 170, 0.1);
+    border: 2px solid #00ffaa;
+    border-radius: 15px;
+    padding: 3rem;
+    min-height: 250px;
+    display: none;
+    backdrop-filter: blur(10px);
+}
+
+/* КОСМИЧЕСКАЯ СТАНЦИЯ */
+.space-universe {
+    background: radial-gradient(ellipse at center, #000428 0%, #004e92 100%);
+    position: relative;
+    overflow: hidden;
+}
+
+.space-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+    position: relative;
+    z-index: 2;
+}
+
+.space-header {
+    text-align: center;
+    margin-bottom: 3rem;
+    position: relative;
+}
+
+.space-header h2 {
+    font-family: 'Orbitron', monospace;
+    color: #ffffff;
+    font-size: 2.8rem;
+    text-shadow: 0 0 30px #ffffff;
+    margin-bottom: 1rem;
+}
+
+.space-status {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.9rem;
+}
+
+.status-item {
+    background: rgba(0, 212, 255, 0.1);
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    border: 1px solid rgba(0, 212, 255, 0.3);
+    color: #00d4ff;
+}
+
+.space-station {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+    margin-bottom: 3rem;
+}
+
+.station-room {
+    background: linear-gradient(135deg, #1e3c72, #2a5298);
+    border: 2px solid #00d4ff;
+    border-radius: 20px;
+    padding: 2rem;
+    cursor: pointer;
+    transition: all 0.4s ease;
+    box-shadow: 0 0 30px rgba(0, 212, 255, 0.2);
+    position: relative;
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+}
+
+.station-room:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 50px rgba(0, 212, 255, 0.4);
+    border-color: #ffffff;
+}
+
+.room-icon {
+    font-size: 3rem;
+    filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.5));
+}
+
+.room-info h3 {
+    color: #ffffff;
+    font-family: 'Orbitron', monospace;
+    margin-bottom: 0.5rem;
+}
+
+.room-info p {
+    color: #ccc;
+    font-size: 0.9rem;
+}
+
+.room-status {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: #00ff00;
+    box-shadow: 0 0 10px #00ff00;
+    animation: statusBlink 2s ease-in-out infinite;
+}
+
+@keyframes statusBlink {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.3; }
+}
+
+.space-radar {
+    position: absolute;
+    bottom: 2rem;
+    right: 2rem;
+    width: 150px;
+    height: 150px;
+}
+
+.radar-screen {
+    width: 100%;
+    height: 100%;
+    border: 2px solid #00d4ff;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(0, 212, 255, 0.1) 0%, transparent 70%);
+    position: relative;
+    overflow: hidden;
+}
+
+.radar-sweep {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 2px;
+    height: 50%;
+    background: linear-gradient(to bottom, #00d4ff, transparent);
+    transform-origin: bottom center;
+    animation: radarSweep 3s linear infinite;
+}
+
+@keyframes radarSweep {
+    0% { transform: translate(-50%, 0) rotate(0deg); }
+    100% { transform: translate(-50%, 0) rotate(360deg); }
+}
+
+.radar-dot {
+    position: absolute;
+    width: 6px;
+    height: 6px;
+    background: #00ff00;
+    border-radius: 50%;
+    box-shadow: 0 0 10px #00ff00;
+    animation: radarPing 2s ease-in-out infinite;
+}
+
+@keyframes radarPing {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.3; transform: scale(1.5); }
+}
+
+.radar-label {
+    text-align: center;
+    margin-top: 0.5rem;
+    font-family: 'JetBrains Mono', monospace;
+    color: #00d4ff;
+    font-size: 0.8rem;
+}
+
+.stars-field {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+}
+
+.nebula {
+    position: absolute;
+    top: 20%;
+    right: 10%;
+    width: 300px;
+    height: 200px;
+    background: radial-gradient(ellipse, rgba(255, 0, 255, 0.3) 0%, transparent 70%);
+    border-radius: 50%;
+    animation: nebulaFloat 8s ease-in-out infinite;
+    z-index: 1;
+}
+
+@keyframes nebulaFloat {
+    0%, 100% { transform: translateY(0) scale(1); }
+    50% { transform: translateY(-20px) scale(1.1); }
+}
+
+.planets {
+    position: absolute;
+    top: 60%;
+    left: 5%;
+    width: 80px;
+    height: 80px;
+    background: radial-gradient(circle at 30% 30%, #ff6b6b, #cc5555);
+    border-radius: 50%;
+    box-shadow: 0 0 30px rgba(255, 107, 107, 0.5);
+    animation: planetRotate 20s linear infinite;
+    z-index: 1;
+}
+
+@keyframes planetRotate {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* КИБЕРСИТИ */
+.city-universe {
+    background: linear-gradient(45deg, #0f0f23, #1a1a2e, #0f0f23);
+    background-size: 400% 400%;
+    animation: gradientShift 15s ease infinite;
+    padding: 2rem;
+}
+
+.city-container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.city-header {
+    text-align: center;
+    margin-bottom: 4rem;
+    position: relative;
+}
+
+.city-header h2 {
+    font-family: 'Orbitron', monospace;
+    color: #ff6b6b;
+    font-size: 3rem;
+    text-shadow: 0 0 40px #ff6b6b;
+    animation: cityGlow 4s ease-in-out infinite alternate;
+}
+
+@keyframes cityGlow {
+    from { text-shadow: 0 0 40px #ff6b6b; }
+    to { text-shadow: 0 0 60px #ff6b6b, 0 0 80px #ff6b6b; }
+}
+
+.isometric-city {
+    display: flex;
+    justify-content: center;
+    gap: 3rem;
+    perspective: 1000px;
+}
+
+.building {
+    position: relative;
+    cursor: pointer;
+    transition: transform 0.5s ease;
+}
+
+.building:hover {
+    transform: translateY(-30px) rotateX(10deg) rotateY(5deg);
+}
+
+.building-top,
+.building-front,
+.building-side {
+    position: absolute;
+}
+
+.building-top {
+    width: 100px;
+    height: 100px;
+    background: linear-gradient(45deg, #4ecdc4, #44a08d);
+    transform: rotateX(90deg) translateZ(80px);
+    border: 2px solid #45b7aa;
+    box-shadow: 0 0 20px rgba(78, 205, 196, 0.5);
+}
+
+.building-front {
+    width: 100px;
+    height: 160px;
+    background: linear-gradient(to bottom, #44a08d, #2d5a52);
+    border: 2px solid #3d8b7a;
+    box-shadow: 0 0 30px rgba(68, 160, 141, 0.3);
+}
+
+.building-side {
+    width: 100px;
+    height: 160px;
+    background: linear-gradient(to bottom, #2d5a52, #1a3329);
+    transform: rotateY(90deg) translateZ(100px);
+    border: 2px solid #254a44;
+}
+
+.building-label {
+    position: absolute;
+    top: 170px;
+    left: 50%;
+    transform: translateX(-50%);
+    color: #4ecdc4;
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 0.9rem;
+    text-align: center;
+    text-shadow: 0 0 10px #4ecdc4;
+}
+
+/* МУЗЫКАЛЬНЫЙ МИР */
+.music-universe {
+    background: linear-gradient(45deg, #667eea 0%, #764ba2 50%, #667eea 100%);
+    background-size: 400% 400%;
+    animation: gradientShift 6s ease infinite;
+    padding: 2rem;
+}
+
+.music-container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.music-header {
+    text-align: center;
+    margin-bottom: 4rem;
+    position: relative;
+}
+
+.music-header h2 {
+    font-family: 'Orbitron', monospace;
+    color: #ffffff;
+    font-size: 3rem;
+    text-shadow: 0 0 40px #ffffff;
+    animation: musicGlow 2s ease-in-out infinite alternate;
+}
+
+@keyframes musicGlow {
+    from { text-shadow: 0 0 40px #ffffff; }
+    to { text-shadow: 0 0 60px #ffffff, 0 0 80px #ffffff; }
+}
+
+.music-visualizer {
+    background: rgba(0, 0, 0, 0.4);
+    border-radius: 20px;
+    padding: 3rem;
+    margin-bottom: 3rem;
+    text-align: center;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    backdrop-filter: blur(10px);
+}
+
+#audio-canvas {
+    border-radius: 15px;
+    background: rgba(0, 0, 0, 0.6);
+    box-shadow: 0 0 30px rgba(255, 255, 255, 0.2);
+}
+
+.music-controls {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+}
+
+.music-controls button {
+    background: linear-gradient(45deg, #ff6b6b, #ee5a24);
+    border: none;
+    color: white;
+    padding: 1.5rem;
+    border-radius: 50%;
+    cursor: pointer;
+    font-family: 'Orbitron', monospace;
+    font-weight: bold;
+    font-size: 1.2rem;
+    transition: all 0.3s ease;
+    box-shadow: 0 6px 20px rgba(255, 107, 107, 0.4);
+    width: 60px;
+    height: 60px;
+}
+
+.music-controls button:hover {
+    transform: scale(1.15) translateY(-5px);
+    box-shadow: 0 10px 30px rgba(255, 107, 107, 0.6);
+}
+
+.music-controls button:active {
+    transform: scale(1.05) translateY(-2px);
+}
